@@ -14,7 +14,7 @@ agent any
 }
 	post{
 		always{
-			archiveArtifacts artifacts: 'outputDocker/**'
+			archiveArtifacts artifacts: 'allure-results/**'
 			sh "docker-compose down"
 		}
 	}
