@@ -11,10 +11,11 @@ agent any
 			sh "docker compose up login navigate"
 		}
 	}
-	stage ("Stop Grid"){
-		steps{
-		sh "docker-compose down"
-	}
+	post{
+		always{
+			archiveArtifacts artifacts: 'outputDocker/**'
+			sh "docker-compose down"
+		}
 	}
 	}
 }
