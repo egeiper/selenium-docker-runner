@@ -11,11 +11,6 @@ agent any
 			sh "docker compose up login navigate"
 		}
 	}
-	stage('Report') {
-    steps {
-   
-    }
-}
 }
 	post{
 		always{
