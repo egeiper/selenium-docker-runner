@@ -11,6 +11,19 @@ agent any
 			sh "docker compose up login navigate"
 		}
 	}
+	stage('Report') {
+    steps {
+    script {
+            allure([
+                    includeProperties: false,
+                    jdk: '',
+                    properties: [],
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: 'allure-results']]
+            ])
+    }
+    }
+}
 }
 	post{
 		always{
