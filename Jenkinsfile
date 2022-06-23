@@ -13,7 +13,13 @@ agent any
 	}
 	stage('Report') {
     steps {
-    script {
+   
+    }
+}
+}
+	post{
+		always{
+			 script {
             allure([
                     includeProperties: false,
                     jdk: '',
@@ -22,11 +28,6 @@ agent any
                     results: [[path: 'allure-results']]
             ])
     }
-    }
-}
-}
-	post{
-		always{
 			archiveArtifacts artifacts: 'allure-results/**'
 			sh "docker-compose down"
 		}
