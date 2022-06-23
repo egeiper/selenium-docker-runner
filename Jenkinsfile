@@ -23,7 +23,6 @@ agent any
                     results: [[path: 'allure-results']]
             ])
     }
-			archiveArtifacts artifacts: 'allure-results/**'
 			sh "docker-compose down"
 		}
 	}
